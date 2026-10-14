@@ -3,27 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lost in the smoke — Thanh Ngo</title>
+<title>Signal lost — Thanh Ngo</title>
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#05060a">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@700&display=swap" rel="stylesheet">
 <style>
-  html,body{margin:0;height:100%;background:#04060a;color:#e9eef7;font-family:Inter,system-ui,sans-serif}
-  canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
-  .copy{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 16px 12vh;text-align:center}
-  h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(64px,14vw,160px);margin:0;line-height:.9;letter-spacing:-.04em}
-  p{color:#8a96ab;margin:16px 0 28px}
-  a{color:#04060a;background:#e9eef7;text-decoration:none;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:500}
+  html,body{margin:0;height:100%;overflow:hidden;background:#05060a;color:#eef1f7}
+  #gl{position:fixed;inset:0;width:100%;height:100%;display:block}
+  .copy{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 16px;text-align:center;pointer-events:none}
+  .tag{font:500 11px "JetBrains Mono",monospace;letter-spacing:.18em;color:#05060a;background:#c6ff3d;padding:4px 8px;margin:0 0 18px}
+  h1{font:700 clamp(28px,5vw,52px)/1.05 Unbounded,system-ui,sans-serif;letter-spacing:-.03em;margin:0}
+  p{font:400 12px/1.6 "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:#a3abbd;margin:16px 0 28px}
+  a{pointer-events:auto;font:500 12px "JetBrains Mono",monospace;letter-spacing:.14em;color:#05060a;background:#eef1f7;text-decoration:none;padding:12px 20px;border-radius:999px}
+  a:hover{background:#c6ff3d}
+  a:focus-visible{outline:2px solid #c6ff3d;outline-offset:4px}
 </style>
+<script type="importmap">
+  { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  } }
+</script>
 </head>
 <body>
-<canvas id="orb" aria-hidden="true"></canvas>
+<canvas id="gl" aria-hidden="true"></canvas>
 <div class="copy">
-  <h1>404</h1>
-  <p>This page drifted off into the smoke.</p>
-  <a href="/">Back home</a>
+  <p class="tag">ERROR 404 · SIGNAL LOST</p>
+  <h1>Nothing out here but noise.</h1>
+  <p>This page drifted out of range.</p>
+  <a href="/">BACK TO BASE</a>
 </div>
-<script src="/assets/orb.js"></script>
-<script>try{OrbHeader.mount(document.getElementById('orb'),{orbY:.6,size:1,strands:30000});}catch(e){}</script>
+<script type="module">
+  import { createSignal } from '/play/signal.js';
+  try {
+    const s = createSignal(document.getElementById('gl'), { reduced: matchMedia('(prefers-reduced-motion: reduce)').matches, nodes: [] });
+    addEventListener('pointermove', (e) => s.setPointer(e.clientX, e.clientY, true), { passive: true });
+    addEventListener('pointerdown', (e) => { if (!e.target.closest('a')) s.pulse(e.clientX, e.clientY, 1.2); });
+  } catch (e) { /* the page still reads fine without WebGL */ }
+</script>
 </body>
 </html>
