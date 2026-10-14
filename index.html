@@ -6,22 +6,20 @@
 <title>Thanh Ngo — Product Manager</title>
 <meta name="description" content="Thanh Ngo, Product Manager at Everfit, based in Da Nang, Vietnam.">
 <meta name="theme-color" content="#05060a">
+<meta name="robots" content="index, follow, noarchive, noimageindex, noai, noimageai">
 <link rel="canonical" href="https://heymintty.com/">
 <meta property="og:url" content="https://heymintty.com/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-
 <meta property="og:type" content="website">
 <meta property="og:title" content="Thanh Ngo — Product Manager">
 <meta property="og:description" content="Four signals are hidden in the noise.">
 <meta property="og:image" content="https://heymintty.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@300;500;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="play/play.css">
-
 <script>
   document.documentElement.classList.add('js');
   setTimeout(function () { document.documentElement.classList.add('booted'); }, 7000);
@@ -35,8 +33,6 @@
 <script type="module" src="play/play.js"></script>
 </head>
 <body>
-
-<!-- Everything shown in 3D also lives here as plain text -->
 <div class="sr-only">
   <h1>Thanh Ngo — Product Manager at Everfit</h1>
   <dl>
@@ -46,11 +42,8 @@
     <dt>Signal</dt><dd><a href="mailto:thanhngo@everfit.io">thanhngo@everfit.io</a>, or <a href="https://www.linkedin.com/in/thanh-ngo-a0980b234/">LinkedIn: Thanh Ngo</a></dd>
   </dl>
 </div>
-
 <canvas id="gl" aria-hidden="true"></canvas>
 <div class="fallback-bg" aria-hidden="true"></div>
-
-<!-- ============ BOOT ============ -->
 <div class="boot" id="boot" aria-hidden="true">
   <div class="boot__log" id="bootLog"></div>
   <div class="boot__foot">
@@ -58,14 +51,10 @@
     <div class="boot__pct" id="bootPct">000</div>
   </div>
 </div>
-
-<!-- ============ CURSOR ============ -->
 <div class="cursor" aria-hidden="true">
   <div class="cursor__ring" id="cRing"><span class="cursor__label" id="cLabel"></span></div>
   <div class="cursor__dot" id="cDot"></div>
 </div>
-
-<!-- ============ WORLD OVERLAY ============ -->
 <div class="overlay" id="overlay" aria-hidden="true">
   <svg class="leader" id="leader"><line id="leaderLine"/><circle id="leaderDot" r="4"/></svg>
   <div class="reticle" id="reticle">
@@ -74,8 +63,6 @@
     <div class="reticle__txt"><b id="reticleId">SIG-01</b><span id="reticleMsg">HOLD TO DECODE</span></div>
   </div>
 </div>
-
-<!-- callout next to the vessel on stage -->
 <div class="callout" id="callout" hidden>
   <div class="callout__top">
     <span class="callout__id" id="calloutId">SIG-01 · BASED</span>
@@ -88,26 +75,20 @@
     <a class="callout__btn" href="https://www.linkedin.com/in/thanh-ngo-a0980b234/" target="_blank" rel="noopener" data-cursor="OPEN">LinkedIn ↗</a>
   </div>
 </div>
-
-<!-- ============ HUD ============ -->
 <header class="hud">
   <div class="hud__corner hud__corner--tl" aria-hidden="true"></div>
   <div class="hud__corner hud__corner--tr" aria-hidden="true"></div>
   <div class="hud__corner hud__corner--bl" aria-hidden="true"></div>
   <div class="hud__corner hud__corner--br" aria-hidden="true"></div>
-
   <div class="intro">
     <p class="brand" aria-hidden="true"><span class="brand__mark"></span>THANH NGO</p>
-    <!-- EDIT: this is the line people read first. Rewrite it in your own voice. -->
     <p class="bio" id="bio">Product Manager at Everfit, building software for fitness coaches from Da Nang. I turn "can we just…" into a spec, and a spec into a release. Allergic to doing the same task twice.</p>
   </div>
-
   <div class="hud__top" aria-hidden="true">
     <div class="count"><span>SIGNALS</span> <b id="count">0/4</b><span class="pips" id="pips"><i></i><i></i><i></i><i></i></span></div>
     <canvas class="compass" id="compass" width="320" height="30"></canvas>
     <p class="hint"><span class="hint--fine">DRAG TO LOOK AROUND · HOLD A SIGNAL TO DECODE</span><span class="hint--touch">SWIPE TO LOOK · HOLD A SIGNAL TO DECODE</span></p>
   </div>
-
   <div class="hud__tr">
     <button class="sound" id="sound" type="button" aria-pressed="false" data-cursor="AUDIO">
       <span class="sound__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
@@ -115,8 +96,6 @@
     </button>
     <div class="clock" aria-hidden="true">DA NANG <b id="clock">--:--:--</b></div>
   </div>
-
-  <!-- the four facts, encrypted until their signal is decoded -->
   <nav class="facts" aria-label="Signals">
     <button class="fact" type="button" data-i="0" data-cursor="LOCATE">
       <span class="fact__k">BASED</span>
@@ -135,13 +114,11 @@
       <span class="fact__v" aria-hidden="true"><i data-final="THANHNGO@EVERFIT.IO"></i><i data-final="OR LINKEDIN: THANH NGO"></i></span>
     </button>
   </nav>
-
   <div class="hud__br" aria-hidden="true">
     <div class="hud__hdg" id="hdg">HDG 000° · PITCH +00°</div>
     <div class="tele">NODES <b id="tNodes">—</b> · FPS <b id="tFps">—</b></div>
   </div>
 </header>
-
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
