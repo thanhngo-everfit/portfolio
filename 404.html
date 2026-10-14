@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lost in the smoke — Thanh Ngo</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;height:100%;background:#04060a;color:#e9eef7;font-family:Inter,system-ui,sans-serif}
+  canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
+  .copy{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 16px 12vh;text-align:center}
+  h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(64px,14vw,160px);margin:0;line-height:.9;letter-spacing:-.04em}
+  p{color:#8a96ab;margin:16px 0 28px}
+  a{color:#04060a;background:#e9eef7;text-decoration:none;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:500}
+</style>
+</head>
+<body>
+<canvas id="orb" aria-hidden="true"></canvas>
+<div class="copy">
+  <h1>404</h1>
+  <p>This page drifted off into the smoke.</p>
+  <a href="/">Back home</a>
+</div>
+<script src="/assets/orb.js"></script>
+<script>try{OrbHeader.mount(document.getElementById('orb'),{orbY:.6,size:1,strands:30000});}catch(e){}</script>
+</body>
+</html>
